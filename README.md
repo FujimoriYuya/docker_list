@@ -9,13 +9,6 @@ git clone git@github.com:FujimoriYuya/docker_example.git
 ### docker 起動
 docker-compose build
 docker-compose up -d
-
-### phpコンテナに入って
-docker-compose exec php bash
-
-### laravel プロジェクト作成
-composer create-project --prefer-dist laravel/laravel ./
-
 ```
 
 ### 確認
@@ -24,10 +17,25 @@ http://localhost/ にアクセスして、laravel の初期画面が表示され
 
 ### うまく動かない時
 
-↓コマンドでコンテナ一旦全削除して build から再度やり直してみる。
+#### ↓コマンドでコンテナ一旦全削除して build から再度やり直してみる。
 ```
+docker stop $(docker ps -q)
 docker rm $(docker ps -q -a)
-docker rm $(docker ps -q -a)
+docker-compose build
+docker-compose up -d
+```
+
+#### プロジェクト再生成試してみる
+```
+rm -rf laravel
+mkdir laravel
+
+### phpコンテナに入って
+docker-compose exec php bash
+
+### laravel プロジェクト作成
+composer create-project --prefer-dist laravel/laravel ./
+
 ```
 
 ### 参考文献
