@@ -31,10 +31,11 @@ rm -rf laravel
 mkdir laravel
 
 ### phpコンテナに入って
-docker-compose exec php bash
+docker exec -it list_php bash
 
 ### laravel プロジェクト作成
-composer create-project --prefer-dist laravel/laravel ./
+composer create-project laravel/laravel .
+
 
 ```
 
