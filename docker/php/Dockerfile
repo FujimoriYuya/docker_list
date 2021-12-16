@@ -28,7 +28,7 @@
 ARG PHP_VERSION=8.1.0-fpm
 FROM php:${PHP_VERSION}
 
-COPY php.ini /usr/local/etc/php/
+COPY ./php.ini /usr/local/etc/php/
 
 RUN apt update && apt install git zip -y
 RUN pecl install redis
