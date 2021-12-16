@@ -1,0 +1,46 @@
+version: '2'
+services:
+
+  php:
+    container_name: list_php
+    build:
+      dockerfile: ./docker/php/Dockerfile
+    volumes:
+      - ./laravel:/var/www
+    restart: always
+    working_dir: /var/www
+
+  nginx:
+    image: nginx:alpine
+    container_name: list_nginx
+    restart: always
+    ports:
+      - 80:80
+      # - 443:443
+    volumes:
+        - ./laravel:/var/www
+        - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+        - php
+
+  db:
+    container_name: list_db
+    restart: always
+    image: postgres:latest
+    environment: 
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+    ports:
+      - 3306:3306
+    # 起動時のコマンド
+    # command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    # ディレクトリ同期。設定ファイルとMySQLのデータが保存される場所を同期している。
+    # コンテナは基本的に起動時に変更されてもコンテナ自体が止まるとデータが消えてしまうため、
+    # 保存しておきたいものはホストマシンと同期しておく必要がある。
+    volumes:
+      - ./docker/db/data/:/var/lib/postgresql/data/:cached
+
+  list-redis:
+    image: redis:4-alpine
+    container_name: list_redis
+    restart: always
