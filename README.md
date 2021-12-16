@@ -19,7 +19,7 @@ http://localhost/ にアクセスして、laravel の初期画面が表示され
 
 #### ↓コマンドでコンテナ一旦全削除して build から再度やり直してみる。
 ```
-docker rm $(docker ps -q -a)
+docker stop $(docker ps -q)
 docker rm $(docker ps -q -a)
 docker-compose build
 docker-compose up -d
