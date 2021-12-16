@@ -3,8 +3,7 @@ services:
 
   php:
     container_name: list_php
-    build:
-      dockerfile: ./docker/php/Dockerfile
+    build: ./docker/php
     volumes:
       - ./laravel:/var/www
     restart: always
