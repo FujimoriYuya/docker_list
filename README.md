@@ -36,8 +36,19 @@ docker exec -it list_php bash
 ### laravel プロジェクト作成
 composer create-project laravel/laravel .
 
+### vendor 入れ直す
+composer install
+
+### .env 入れ直す 
+cp .env.example .env
+
+### ↑で生成した .env に↓の env内容をコピー
 
 ```
+
+### .env
+
+https://drive.google.com/file/d/1KHum629LNS-DDRzYx6DKL7OPvh6lfDMp/view?usp=sharing
 
 ### 参考文献
 
