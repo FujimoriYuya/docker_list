@@ -40,7 +40,7 @@ services:
     # 保存しておきたいものはホストマシンと同期しておく必要がある。
     volumes:
       - ./docker/db/data/:/var/lib/mysql/data/:cached
-      - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
+      # - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
 
   # db:
   #   container_name: list_db
