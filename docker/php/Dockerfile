@@ -33,6 +33,9 @@ COPY ./php.ini /usr/local/etc/php/
 RUN apt update && apt install git zip -y
 RUN pecl install redis
 
+### mysql利用のため、ドライバ追加
+RUN docker-php-ext-install pdo_mysql
+
 #Composer install
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
