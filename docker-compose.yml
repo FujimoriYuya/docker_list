@@ -39,7 +39,11 @@ services:
     volumes:
       - ./docker/db/data/:/var/lib/postgresql/data/:cached
 
-  list-redis:
+  redis:
     image: redis:4-alpine
     container_name: list_redis
     restart: always
+    volumes:
+      - "./docker/redis/data/redis:/data"
+    ports:
+      - 6379:6379
