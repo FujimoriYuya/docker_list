@@ -8,6 +8,8 @@ services:
       - ./laravel:/var/www
     restart: always
     working_dir: /var/www
+    depends_on:
+        - db
 
   nginx:
     image: nginx:alpine
@@ -34,12 +36,12 @@ services:
     ports:
       - 3306:3306
     # 起動時のコマンド
-    # command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
     # ディレクトリ同期。設定ファイルとMySQLのデータが保存される場所を同期している。
     # コンテナは基本的に起動時に変更されてもコンテナ自体が止まるとデータが消えてしまうため、
     # 保存しておきたいものはホストマシンと同期しておく必要がある。
-    volumes:
-      - ./docker/db/data/:/var/lib/mysql/data/:cached
+    # volumes:
+      # - ./docker/db/data/:/var/lib/mysql/data/:cached
       # - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
 
   # db:
