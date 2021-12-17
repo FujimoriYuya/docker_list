@@ -46,3 +46,7 @@ ENV PATH $PATH:/composer/vendor/bin
 WORKDIR /var/www
 
 RUN composer global require "laravel/installer"
+
+### redis利用用
+RUN git clone https://github.com/phpredis/phpredis.git /usr/src/php/ext/redis && \
+  docker-php-ext-install redis
