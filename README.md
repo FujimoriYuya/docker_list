@@ -47,6 +47,9 @@ cp .env.example .env
 
 ### ↑で生成した .env に↓の env内容をコピー
 
+### ログインパスワード追加
+ App\Models\User::create(["name" => "admin", "email" => "admin@example.com", "password" => Hash::make('password')]);
+
 ```
 
 ### .env

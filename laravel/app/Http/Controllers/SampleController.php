@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-
+use App\Models\User;
 use Illuminate\Support\Facades\Redis;
 
 /**
@@ -17,15 +17,13 @@ class SampleController extends Controller
         $this->redis = Redis::connection('default');
         $this->redis->set('laravel', '2217');
 
-        return "test";
+        return "redis";
     }
 
     public function db()
     {
-        // redis 動作確認用
-        $this->redis = Redis::connection('default');
-        $this->redis->set('laravel', '2217');
-
-        return "test";
+        // db接続 動作確認用
+        $user = new User;
+        return $user->find(7)->get()->toArray();
     }
 }
