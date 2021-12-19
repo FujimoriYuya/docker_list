@@ -14,7 +14,8 @@ use App\Http\Controllers\SampleController;
 |
 */
 
-Route::get('/test', [SampleController::class, 'test']);
+Route::get('/redis_test', [SampleController::class, 'redis']);
+Route::get('/db_test', [SampleController::class, 'db']);
 
 Route::get('/', function () {
     return view('welcome');

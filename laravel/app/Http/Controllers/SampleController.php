@@ -11,7 +11,16 @@ use Illuminate\Support\Facades\Redis;
  */
 class SampleController extends Controller
 {
-    public function test()
+    public function redis()
+    {
+        // redis 動作確認用
+        $this->redis = Redis::connection('default');
+        $this->redis->set('laravel', '2217');
+
+        return "test";
+    }
+
+    public function db()
     {
         // redis 動作確認用
         $this->redis = Redis::connection('default');

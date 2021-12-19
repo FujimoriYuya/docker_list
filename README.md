@@ -50,6 +50,39 @@ cp .env.example .env
 
 https://drive.google.com/file/d/1KHum629LNS-DDRzYx6DKL7OPvh6lfDMp/view?usp=sharing
 
+
+---
+
+### 各コンテナ接続&確認
+
+#### 
+```
+docker exec -it list_core
+```
+
+#### db (mysql)
+
+```
+docker exec -it list_db bash
+mysql -u admin -p
+
+```
+
+#### redis
+
+```
+docker exec -it list_redis sh
+redis-cli
+
+set redis_data data
+keys *
+get redis_data
+"data"
+
+```
+
+---
+
 ### 参考文献
 
 https://qiita.com/A-Kira/items/1c55ef689c0f91420e81
