@@ -36,25 +36,23 @@ mkdir laravel
 ### phpコンテナに入って
 docker exec -it list_php bash
 
-### laravel プロジェクト作成
-composer create-project laravel/laravel .
+### .env 作成する
+### https://drive.google.com/file/d/1KHum629LNS-DDRzYx6DKL7OPvh6lfDMp/view?usp=sharing
 
-### vendor 入れ直す
-composer install
-
-### .env 入れ直す 
 cp .env.example .env
 
-### ↑で生成した .env に↓の env内容をコピー
+### vendor 入れ直す
+composer require laravel/jetstream
+composer install
+
+### DB作成
+php artisan jetstream:install livewire
+php artisan migrate
 
 ### ログインパスワード追加
- App\Models\User::create(["name" => "admin", "email" => "admin@example.com", "password" => Hash::make('password')]);
+App\Models\User::create(["name" => "admin", "email" => "admin@example.com", "password" => Hash::make('password')]);
 
 ```
-
-### .env
-
-https://drive.google.com/file/d/1KHum629LNS-DDRzYx6DKL7OPvh6lfDMp/view?usp=sharing
 
 
 ---

@@ -47,7 +47,7 @@ WORKDIR /var/www
 ### laravel インストール
 RUN composer global require "laravel/installer"
 ### npm インストール
-RUN apt install nodejs npm
+RUN apt install nodejs npm -y
 
 ### redis利用
 RUN git clone https://github.com/phpredis/phpredis.git /usr/src/php/ext/redis && \
