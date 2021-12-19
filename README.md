@@ -29,7 +29,10 @@ docker-compose up -d
 ```
 rm -rf laravel
 mkdir laravel
+```
 
+
+```
 ### phpコンテナに入って
 docker exec -it list_php bash
 
