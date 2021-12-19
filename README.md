@@ -33,11 +33,6 @@ docker exec -it list_php bash
 
 cp .env.example .env
 
-### jetstream
-composer require laravel/fortify
-php artisan migrate
-php artisan vendor:publish --provider="Laravel\Fortify\FortifyServiceProvider"
-
 ### vendor 入れ直す
 composer install
 

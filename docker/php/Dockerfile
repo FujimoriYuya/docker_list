@@ -46,6 +46,7 @@ WORKDIR /var/www
 
 ### laravel インストール
 RUN composer global require "laravel/installer"
+
 ### npm インストール
 RUN apt install nodejs npm -y
 

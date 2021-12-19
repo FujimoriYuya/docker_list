@@ -24,6 +24,6 @@ class SampleController extends Controller
     {
         // db接続 動作確認用
         $user = new User;
-        return $user->find(7)->get()->toArray();
+        return $user->find(1)->get()->toArray();
     }
 }
