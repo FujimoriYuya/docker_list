@@ -1,10 +1,10 @@
-# docker_sample
+# docker_list
 
 ## セット手順
 
 ```
-git clone git@github.com:FujimoriYuya/docker_example.git
-cd docker_example
+git clone git@github.com:FujimoriYuya/docker_list.git
+cd docker_list
 
 ### docker 起動
 docker-compose build
