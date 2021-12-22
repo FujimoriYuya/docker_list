@@ -79,6 +79,11 @@ get redis_data
 
 ```
 
+#### phpmyadmin
+
+http://localhost:3000
+ログインIDとパスワードはdbに設定してあるものと同様
+
 ---
 
 ### 参考文献
