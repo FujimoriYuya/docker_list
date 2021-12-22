@@ -40,6 +40,7 @@ composer install
 php artisan migrate
 
 ### ログインパスワード追加
+php artisan tinker
 App\Models\User::create(["name" => "admin", "email" => "admin@example.com", "password" => Hash::make('password')]);
 
 ```
