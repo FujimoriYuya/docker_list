@@ -70,3 +70,22 @@ services:
       - "./docker/redis/data/redis:/data"
     ports:
       - 6379:6379
+
+  # mailhog:
+  #   image: mailhog/mailhog
+  #   ports:
+  #     - ${MAILHOG_PORT}:8025
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: list_phpmyadmin
+    restart: always
+    depends_on:
+      - list_db
+    links:
+      - mysql:db
+    ports:
+      - 3000:80
+    volumes:
+      - "./docker/phpmyadmin:/phpmyadmin"
+    # command: /usr/bin/pgweb --bind=0.0.0.0 --listen=8081 --prefix=pgweb/
